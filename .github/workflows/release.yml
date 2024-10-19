@@ -1,0 +1,56 @@
+# This is a basic workflow to help you get started with Actions
+
+name: release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Get repository and package name
+        id: vars
+        run: |
+            echo ::set-output name=repository::${GITHUB_REPOSITORY#*/}
+            echo ::set-output name=package::${GITHUB_REPOSITORY#*/}-${GITHUB_REF/refs\/tags\//}
+
+      - name: Build default package
+        run: |
+          npm install
+          npm run build:prod
+          cd dist 
+          zip -r ${{ steps.vars.outputs.package }}.zip sentry-mixly
+          cp -rv ${{ steps.vars.outputs.package }}.zip ${GITHUB_WORKSPACE}
+
+      - name: Build 2.0rc3 package
+        run: |
+          npm install
+          npm run build:prod:2.0rc3
+          cd dist 
+          zip -r ${{ steps.vars.outputs.package }}_mixly2.0rc3.zip sentry-mixly
+          cp -rv ${{ steps.vars.outputs.package }}_mixly2.0rc3.zip ${GITHUB_WORKSPACE}
+
+      - name: Build 1.0 package
+        run: |
+          npm install
+          npm run build:prod:1.0
+          cd dist 
+          zip -r ${{ steps.vars.outputs.package }}_mixly1.0.zip sentry-mixly
+          cp -rv ${{ steps.vars.outputs.package }}_mixly1.0.zip ${GITHUB_WORKSPACE}
+
+          
+      - name: Create Release and Upload Release Asset
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+           ${{ steps.vars.outputs.package }}.zip
+           ${{ steps.vars.outputs.package }}_mixly2.0rc3.zip
+           ${{ steps.vars.outputs.package }}_mixly1.0.zip

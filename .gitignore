@@ -1,0 +1,9 @@
+__pycache__
+*.pyc
+*.DS_Store
+node_modules
+.idea
+package-lock.json
+yarn.lock
+dist
+*.ini

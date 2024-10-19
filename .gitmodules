@@ -1,0 +1,3 @@
+[submodule "origin/libraries/Sentry-Arduino"]
+	path = origin/libraries/Sentry-Arduino
+	url = https://github.com/AITosee/Sentry-Arduino
