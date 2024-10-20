@@ -22,7 +22,7 @@ npm install
 ### 使用方法
 
 * 1.打开mixly软件，点击"导入库/Import"。
-* 2.选中Sentry文件夹中的Sentry.xml文件，提示导入成功即可。
+* 2.选中Sengo2文件夹中的Sengo2.xml文件，提示导入成功即可。
 
 ### 版本更新
 
