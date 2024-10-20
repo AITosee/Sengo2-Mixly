@@ -1,9 +1,9 @@
 export const ZhHantMsg = {
     // Help文本
     SENGO2_HELP_INIT_TOOLTIP: '初始化視覺傳感器，並選擇相關的地址',
-    SENGO2_HELP_SET_DEFAULT: '傳感器算法狀態恢復默認',
+    SENGO2_HELP_SET_DEFAULT: '傳感器算法狀態恢複默認',
     SENGO2_HELP_LED:
-        '黑色爲關閉LED顯示，兩種顏色相同時,LED狀態爲手動，不隨着檢測結果改變',
+        '黑色為關閉LED顯示，兩種顏色相同時,LED狀態為手動，不隨著檢測結果改變',
     SENGO2_HELP_GET_VISION_VALUE: '獲取算法對應結果',
     SENGO2_HELP_DETECTED_VISION_VALUE:
         '是否檢測到算法目標值，檢測到返回Ture，否則False',
@@ -19,7 +19,7 @@ export const ZhHantMsg = {
     SENGO2_BEGIN: '初始化',
     SENGO2_PORT: '端口',
     SENGO2_ADDR: '地址',
-    SENGO2_SET_DEFAULT: '恢復默認參數',
+    SENGO2_SET_DEFAULT: '恢複默認參數',
     SENGO2_VISION_CN: '算法',
     SENGO2_VISION_EN: '',
     SENGO2_STATUS: '狀態',
@@ -29,12 +29,12 @@ export const ZhHantMsg = {
     SENGO2_SET_PARAM_GROUP: '參數組',
     SENGO2_INDEX: '索引',
     SENGO2_CENTER: '中心',
-    SENGO2_X: '橫座標',
-    SENGO2_Y: '縱座標',
+    SENGO2_X: '橫坐標',
+    SENGO2_Y: '縱坐標',
     SENGO2_WEIGHT: '最小寬度',
     SENGO2_HEIGHT: '最小高度',
     SENGO2_COLOR: '顏色',
-    SENGO2_LABLE: '標籤',
+    SENGO2_LABLE: '標簽',
     SENGO2_LED_SET_COLOR: '檢測到目標時LED顯示',
     SENGO2_LED_SET_COLOR_NOT: '否則',
     SENGO2_LED_SET_LEVEL: '亮度(1~15)',
@@ -47,6 +47,9 @@ export const ZhHantMsg = {
     SENGO2_VISION_RESULT_2: '的',
     SENGO2_VISION_BLOCK: '塊',
     SENGO2_VISION_DATA: '數據',
+    SENGO2_VISION_TAG_CODE: '編碼格式',
+    SENGO2_EVERY_CLOLR: '每種顏色最大可檢測數量(1-5)',
+    SENGO2_VISION_MAX_RESULT: '最大可檢測數量(1-5)',
     SENGO2_DETECTED_NUMBER: '  返回的結果數量',
     SENGO2_GET_QRCODEVALUE: '  返回的結果字符串',
 
@@ -54,7 +57,7 @@ export const ZhHantMsg = {
     SENGO2_VISION_VISIONCOLOR: '顏色識別',
     SENGO2_VISION_VISIONBLOB: '色塊檢測',
     SENGO2_VISION_VISIONBALL: '球體識別',
-    SENGO2_VISION_VISIONAPRILTAG: '標籤識別',
+    SENGO2_VISION_VISIONAPRILTAG: '標簽識別',
     SENGO2_VISION_VISIONLINE: '線條檢測',
     SENGO2_VISION_VISIONLEARNING: '深度學習',
     SENGO2_VISION_VISIONCARD: '卡片識別',
@@ -66,7 +69,7 @@ export const ZhHantMsg = {
     SENGO2_VISION_VISIONCUSTOM: '自定義',
 
     // Sengo2 Enable Disable
-    SENGO2_ENABLE: '開啓',
+    SENGO2_ENABLE: '開啟',
     SENGO2_DISABLE: '關閉',
 
     // LED color type
@@ -86,16 +89,16 @@ export const ZhHantMsg = {
     SENGO2_YELLOW_LIGHT: '黃光',
 
     // Sengo2 State Value Type
-    SENGO2_STATE_VALUE_X: '橫座標',
-    SENGO2_STATE_VALUE_Y: '縱座標',
+    SENGO2_STATE_VALUE_X: '橫坐標',
+    SENGO2_STATE_VALUE_Y: '縱坐標',
     SENGO2_STATE_VALUE_WIDTH: '寬度',
     SENGO2_STATE_VALUE_HEIGHT: '高度',
-    SENGO2_STATE_VALUE_LABEL: '標籤',
+    SENGO2_STATE_VALUE_LABEL: '標簽',
 
-    SENGO2_STATE_LINE_EX: '終點橫座標',
-    SENGO2_STATE_LINE_EY: '終點縱座標',
-    SENGO2_STATE_LINE_SX: '起點橫座標',
-    SENGO2_STATE_LINE_SY: '起點縱座標',
+    SENGO2_STATE_LINE_EX: '終點橫坐標',
+    SENGO2_STATE_LINE_EY: '終點縱坐標',
+    SENGO2_STATE_LINE_SX: '起點橫坐標',
+    SENGO2_STATE_LINE_SY: '起點縱坐標',
     SENGO2_STATE_LINE_A: '傾斜角度',
 
     SENGO2_STATE_VALUE_R: '紅色分量值',
@@ -132,7 +135,7 @@ export const ZhHantMsg = {
     SENGO2_CLASS20_SHEEP: '羊',
     SENGO2_CLASS20_SOFA: '沙發',
     SENGO2_CLASS20_TRAIN: '火車',
-    SENGO2_CLASS20_MONITOR: '電視',
+    SENGO2_CLASS20_MONITOR: '顯示器',
 
     // Sengo2 Card Type
     SENGO2_CARD_TRAFFIC: '交通卡片',
@@ -169,17 +172,17 @@ export const ZhHantMsg = {
     SENGO2_CARD_0: '0',
 
     mixly_Sengo2: 'Sengo2 視覺傳感器',
-    Sengo21_Setup: '設置模塊',
-    Sengo21_Run: '運行模塊',
-    Sengo21_example: '算法示例',
+    sengo2_Setup: '設置模塊',
+    sengo2_Run: '運行模塊',
+    sengo2_example: '算法示例',
 }
 
 export const ZhHantCatgories = {
     mixly_Sengo2: ZhHantMsg.mixly_Sengo2,
 
-    Sengo2_Setup: ZhHantMsg.Sengo21_Setup,
-    Sengo2_Run: ZhHantMsg.Sengo21_Run,
-    Sengo2_example: ZhHantMsg.Sengo21_example,
+    Sengo2_Setup: ZhHantMsg.sengo2_Setup,
+    Sengo2_Run: ZhHantMsg.sengo2_Run,
+    Sengo2_example: ZhHantMsg.sengo2_example,
 
     Sengo2_example_Blod: ZhHantMsg.SENGO2_VISION_VISIONBLOB,
     Sengo2_example_Color: ZhHantMsg.SENGO2_VISION_VISIONCOLOR,

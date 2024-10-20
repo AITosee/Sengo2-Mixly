@@ -59,7 +59,7 @@ export const vision_line_objs = function () {
     ]
 }
 
-export const sentry2_vision_blod_objs = function () {
+export const sengo2_vision_blod_objs = function () {
     return [
         [Blockly.Msg.SENGO2_COLOR_BLACK, 'Sengo2::kColorBlack'],
         [Blockly.Msg.SENGO2_COLOR_WHITE, 'Sengo2::kColorWhite'],
@@ -69,7 +69,7 @@ export const sentry2_vision_blod_objs = function () {
         [Blockly.Msg.SENGO2_COLOR_YELLOW, 'Sengo2::kColorYellow'],
     ]
 }
-export const sentry2_vision_objs = function () {
+export const sengo2_vision_objs = function () {
     return [
         [Blockly.Msg.SENGO2_VISION_VISIONCOLOR, 'Sengo2::kVisionColor'],
         [Blockly.Msg.SENGO2_VISION_VISIONBLOB, 'Sengo2::kVisionBlob'],
@@ -91,7 +91,7 @@ export const sentry2_vision_objs = function () {
     ]
 }
 
-export const sentry2_vision_param_objs = function () {
+export const sengo2_vision_param_objs = function () {
     return [
         [Blockly.Msg.SENGO2_VISION_VISIONCOLOR, 'Sengo2::kVisionColor'],
         [Blockly.Msg.SENGO2_VISION_VISIONBLOB, 'Sengo2::kVisionBlob'],
@@ -100,7 +100,7 @@ export const sentry2_vision_param_objs = function () {
         [Blockly.Msg.SENGO2_VISION_VISIONCUSTOM, 'Sengo2::kVisionCustom'],
     ]
 }
-export const sentry2_vision_custom = function () {
+export const sengo2_vision_custom = function () {
     return [
         [Blockly.Msg.SENGO2_VISION_VISIONCUSTOM, 'Sengo2::kVisionCustom'],
         [Blockly.Msg.SENGO2_VISION_VISIONCOLOR, 'Sengo2::kVisionColor'],
@@ -109,7 +109,7 @@ export const sentry2_vision_custom = function () {
         [Blockly.Msg.SENGO2_VISION_VISIONFACE, 'Sengo2::kVisionFace'],
     ]
 }
-export const sentry2_vision_20class_objs = function () {
+export const sengo2_vision_20class_objs = function () {
     return [
         [Blockly.Msg.SENGO2_CLASS20_AIRPLANE, 'Sengo2::kAirplane'],
         [Blockly.Msg.SENGO2_CLASS20_BICYCLE, 'Sengo2::kBicycle'],
@@ -134,45 +134,21 @@ export const sentry2_vision_20class_objs = function () {
     ]
 }
 
-export const sentry2_vision_card_objs = function () {
+export const sengo2_vision_card_objs = function () {
     return [
         [Blockly.Msg.SENGO2_CARD_FORWARD, 'Sengo2::kCardForward'],
         [Blockly.Msg.SENGO2_CARD_LEFT, 'Sengo2::kCardLeft'],
         [Blockly.Msg.SENGO2_CARD_RIGHT, 'Sengo2::kCardRight'],
         [Blockly.Msg.SENGO2_CARD_TURN_AROUND, 'Sengo2::kCardTurnAround'],
-        [Blockly.Msg.SENGO2_CARD_PARK, 'Sengo2::kCardPark'],
-        [Blockly.Msg.SENGO2_CARD_GREEN_LIGHT, 'Sengo2::kCardGreenLight'],
-        [Blockly.Msg.SENGO2_CARD_RED_LIGHT, 'Sengo2::kCardRedLight'],
-        [Blockly.Msg.SENGO2_CARD_SPEED_40, 'Sengo2::kCardSpeed40'],
-        [Blockly.Msg.SENGO2_CARD_SPEED_60, 'Sengo2::kCardSpeed60'],
-        [Blockly.Msg.SENGO2_CARD_SPEED_80, 'Sengo2::kCardSpeed80'],
-        [Blockly.Msg.SENGO2_CARD_CHECK, 'Sengo2::kCardCheck'],
-        [Blockly.Msg.SENGO2_CARD_CROSS, 'Sengo2::kCardCross'],
-        [Blockly.Msg.SENGO2_CARD_CIRCLE, 'Sengo2::kCardCircle'],
-        [Blockly.Msg.SENGO2_CARD_SQUARE, 'Sengo2::kCardSquare'],
-        [Blockly.Msg.SENGO2_CARD_TRIANGLE, 'Sengo2::kCardTriangle'],
-        [Blockly.Msg.SENGO2_CARD_PLUS, 'Sengo2::kCardPlus'],
-        [Blockly.Msg.SENGO2_CARD_MINUS, 'Sengo2::kCardMinus'],
-        [Blockly.Msg.SENGO2_CARD_DIVIDE, 'Sengo2::kCardDivide'],
-        [Blockly.Msg.SENGO2_CARD_EQUAL, 'Sengo2::kCardEqual'],
-        [Blockly.Msg.SENGO2_CARD_0, 'Sengo2::kCardZero'],
-        [Blockly.Msg.SENGO2_CARD_1, 'Sengo2::kCardOne'],
-        [Blockly.Msg.SENGO2_CARD_2, 'Sengo2::kCardTwo'],
-        [Blockly.Msg.SENGO2_CARD_3, 'Sengo2::kCardThree'],
-        [Blockly.Msg.SENGO2_CARD_4, 'Sengo2::kCardFour'],
-        [Blockly.Msg.SENGO2_CARD_5, 'Sengo2::kCardFive'],
-        [Blockly.Msg.SENGO2_CARD_6, 'Sengo2::kCardSix'],
-        [Blockly.Msg.SENGO2_CARD_7, 'Sengo2::kCardSeven'],
-        [Blockly.Msg.SENGO2_CARD_8, 'Sengo2::kCardEight'],
-        [Blockly.Msg.SENGO2_CARD_9, 'Sengo2::kCardNine'],
+        [Blockly.Msg.SENGO2_CARD_PARK, 'Sengo2::kCardPark']
     ]
 }
 
 export const vision_obj_card_dict = function () {
     return {
-        'Sengo2::kVisionBlob': sentry2_vision_blod_objs(),
-        'Sengo2::kVisionCard': sentry2_vision_card_objs(),
-        'Sengo2::kVision20Classes': sentry2_vision_20class_objs()
+        'Sengo2::kVisionBlob': sengo2_vision_blod_objs(),
+        'Sengo2::kVisionCard': sengo2_vision_card_objs(),
+        'Sengo2::kVision20Classes': sengo2_vision_20class_objs()
     }
 }
 
@@ -275,7 +251,7 @@ export const Sengo2VisionSetStatus = {
                 Blockly.Msg.SENGO2_VISION_CN + Blockly.Msg.SENGO2_VISION_EN
             )
             .appendField(
-                new Blockly.FieldDropdown(sentry2_vision_objs()),
+                new Blockly.FieldDropdown(sengo2_vision_objs()),
                 'vision_obj'
             )
 
@@ -312,7 +288,7 @@ export const Sengo2VisionSetParamNum = {
                 Blockly.Msg.SENGO2_VISION_EN
             )
             .appendField(
-                new Blockly.FieldDropdown(sentry2_vision_param_objs()),
+                new Blockly.FieldDropdown(sengo2_vision_param_objs()),
                 'vision_obj'
             )
             .appendField(' ')
@@ -386,7 +362,7 @@ export const Sengo2VisionBlobSetParam = {
             .appendField(new Blockly.FieldNumber(4, 0, 9999, 1), 'h')
             .appendField(Blockly.Msg.SENGO2_COLOR)
             .appendField(
-                new Blockly.FieldDropdown(sentry2_vision_blod_objs()),
+                new Blockly.FieldDropdown(sengo2_vision_blod_objs()),
                 'lable'
             )
             .appendField(Blockly.Msg.SENGO2_SET_PARAM_GROUP)
@@ -397,6 +373,95 @@ export const Sengo2VisionBlobSetParam = {
     },
 }
 
+export const Sengo2VisionSetBlobNum = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(
+                Blockly.Msg.SENGO2_SET +
+                Blockly.Msg.SENGO2_NAME +
+                Blockly.Msg.SENGO2_VISION_EN
+            )
+            .appendField(
+                new Blockly.FieldDropdown([
+                    [
+                        Blockly.Msg.SENGO2_VISION_VISIONBLOB,
+                        'Sengo2::kVisionBlob',
+                    ],
+                ]),
+                'vision_obj'
+            )
+        this.appendDummyInput()
+            .appendField("  "+ Blockly.Msg.SENGO2_EVERY_CLOLR)
+            .appendField(new Blockly.FieldNumber(1, 1, 5, 1), 'mode')
+        this.setPreviousStatement(true, null)
+        this.setNextStatement(true, null)
+        this.setInputsInline(true)
+        this.setColour('#EF5411')
+    },
+}
+
+export const Sengo2VisionSetLineNum = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(
+                Blockly.Msg.SENGO2_SET +
+                Blockly.Msg.SENGO2_NAME +
+                Blockly.Msg.SENGO2_VISION_EN
+            )
+            .appendField(
+                new Blockly.FieldDropdown([
+                    [
+                        Blockly.Msg.SENGO2_VISION_VISIONLINE,
+                        'Sengo2::kVisionLine',
+                    ],
+                ]),
+                'vision_obj'
+            )
+        this.appendDummyInput()
+            .appendField("  "+ Blockly.Msg.SENGO2_VISION_MAX_RESULT)
+            .appendField(new Blockly.FieldNumber(1, 1, 5, 1), 'mode')
+        this.setPreviousStatement(true, null)
+        this.setNextStatement(true, null)
+        this.setInputsInline(true)
+        this.setColour('#EF5411')
+    },
+}
+
+export const Sengo2VisionSetAprilTagMode = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField(
+                Blockly.Msg.SENGO2_SET +
+                Blockly.Msg.SENGO2_NAME +
+                Blockly.Msg.SENGO2_VISION_EN
+            )
+            .appendField(
+                new Blockly.FieldDropdown([
+                    [
+                        Blockly.Msg.SENGO2_VISION_VISIONAPRILTAG,
+                        'Sengo2::kVisionAprilTag',
+                    ],
+                ]),
+                'vision_obj'
+            )
+        this.appendDummyInput()
+            .appendField("  "+ Blockly.Msg.SENGO2_VISION_TAG_CODE)
+            .appendField(
+                new Blockly.FieldDropdown([
+                    ["16H5",'Sengo2::kVisionModeFamily16H5'],
+                    ["25H9",'Sengo2::kVisionModeFamily25H9'],
+                    ["36H11",'Sengo2::kVisionModeFamily36H11'],
+                ]),
+                'mode'
+            )
+        this.setPreviousStatement(true, null)
+        this.setNextStatement(true, null)
+        this.setInputsInline(true)
+        this.setColour('#EF5411')
+    },
+}
+
+
 export const Sengo2VisionSetParam = {
     init: function () {
         this.appendDummyInput()
@@ -406,7 +471,7 @@ export const Sengo2VisionSetParam = {
                 Blockly.Msg.SENGO2_VISION_EN
             )
             .appendField(
-                new Blockly.FieldDropdown(sentry2_vision_custom()),
+                new Blockly.FieldDropdown(sengo2_vision_custom()),
                 'vision_obj'
             )
         this.appendDummyInput('VisionParam')
@@ -435,7 +500,7 @@ export const Sengo2VisionDetectedCount = {
                 Blockly.Msg.SENGO2_NAME + Blockly.Msg.SENGO2_VISION_EN
             )
             .appendField(
-                new Blockly.FieldDropdown(sentry2_vision_objs()),
+                new Blockly.FieldDropdown(sengo2_vision_objs()),
                 'vision_obj'
             )
             .appendField(Blockly.Msg.SENGO2_DETECTED_NUMBER)
@@ -556,7 +621,7 @@ export const Sengo2VisionCustom = {
         this.appendDummyInput('VisionValue')
             .appendField(Blockly.Msg.SENGO2_VISION_EN)
             .appendField(
-                new Blockly.FieldDropdown(sentry2_vision_custom()),
+                new Blockly.FieldDropdown(sengo2_vision_custom()),
                 'vision_obj'
             )
             .appendField(Blockly.Msg.SENGO2_VISION_RETURN)

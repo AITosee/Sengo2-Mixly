@@ -47,6 +47,9 @@ export const EnMsg = {
     SENGO2_VISION_RESULT_1: 'result',
     SENGO2_VISION_BLOCK: ' blob',
     SENGO2_VISION_DATA: 'returnValue',
+    SENGO2_VISION_TAG_CODE: 'standard',
+    SENGO2_EVERY_CLOLR: 'max num of blobs for each color(1-5)',
+    SENGO2_VISION_MAX_RESULT: 'max num of lines(1-5)',
     SENGO2_DETECTED_NUMBER: '  num of results',
     SENGO2_GET_QRCODEVALUE: '  string of decoding result',
 
@@ -170,28 +173,17 @@ export const EnMsg = {
     SENGO2_CARD_0: '0',
 
     mixly_Sengo2: 'Sengo2 Vision Sensor',
-    Sengo21_Setup: 'Setting Blocks',
-    Sengo21_Run: 'Operation Blocks',
-    Sengo21_example: 'Example',
+    sengo2_Setup: 'Setting Blocks',
+    sengo2_Run: 'Operation Blocks',
+    sengo2_example: 'Example',
 }
 
 export const EnCatgories = {
     mixly_Sengo2: EnMsg.mixly_Sengo2,
 
-    Sengo21_Setup: EnMsg.Sengo21_Setup,
-    Sengo21_Run: EnMsg.Sengo21_Run,
-    Sengo21_example: EnMsg.Sengo21_example,
-
-    Sengo21_example_Blod: EnMsg.SENGO2_VISION_VISIONBLOB,
-    Sengo21_example_Color: EnMsg.SENGO2_VISION_VISIONCOLOR,
-    Sengo21_example_ball: EnMsg.SENGO2_VISION_VISIONBALL,
-    Sengo21_example_Line: EnMsg.SENGO2_VISION_VISIONLINE,
-    Sengo21_example_Card: EnMsg.SENGO2_VISION_VISIONCARD,
-    Sengo21_example_body: EnMsg.SENGO2_VISION_VISIONBODY,
-
-    Sengo2_Setup: EnMsg.Sengo21_Setup,
-    Sengo2_Run: EnMsg.Sengo21_Run,
-    Sengo2_example: EnMsg.Sengo21_example,
+    Sengo2_Setup: EnMsg.sengo2_Setup,
+    Sengo2_Run: EnMsg.sengo2_Run,
+    Sengo2_example: EnMsg.sengo2_example,
 
     Sengo2_example_Blod: EnMsg.SENGO2_VISION_VISIONBLOB,
     Sengo2_example_Color: EnMsg.SENGO2_VISION_VISIONCOLOR,

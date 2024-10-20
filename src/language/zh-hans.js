@@ -47,6 +47,9 @@ export const ZhHansMsg = {
     SENGO2_VISION_RESULT_2: '的',
     SENGO2_VISION_BLOCK: '块',
     SENGO2_VISION_DATA: '数据',
+    SENGO2_VISION_TAG_CODE: '编码格式',
+    SENGO2_EVERY_CLOLR: '每种颜色最大可检测数量(1-5)',
+    SENGO2_VISION_MAX_RESULT: '最大可检测数量(1-5)',
     SENGO2_DETECTED_NUMBER: '  返回的结果数量',
     SENGO2_GET_QRCODEVALUE: '  返回的结果字符串',
 
@@ -169,28 +172,17 @@ export const ZhHansMsg = {
     SENGO2_CARD_0: '0',
 
     mixly_Sengo2: 'Sengo2 视觉传感器',
-    Sengo21_Setup: '设置模块',
-    Sengo21_Run: '运行模块',
-    Sengo21_example: '算法示例',
+    Sengo2_Setup: '设置模块',
+    Sengo2_Run: '运行模块',
+    Sengo2_example: '算法示例',
 }
 
 export const ZhHansCatgories = {
     mixly_Sengo2: ZhHansMsg.mixly_Sengo2,
 
-    Sengo21_Setup: ZhHansMsg.Sengo21_Setup,
-    Sengo21_Run: ZhHansMsg.Sengo21_Run,
-    Sengo21_example: ZhHansMsg.Sengo21_example,
-
-    Sengo21_example_Blod: ZhHansMsg.SENGO2_VISION_VISIONBLOB,
-    Sengo21_example_Color: ZhHansMsg.SENGO2_VISION_VISIONCOLOR,
-    Sengo21_example_ball: ZhHansMsg.SENGO2_VISION_VISIONBALL,
-    Sengo21_example_Line: ZhHansMsg.SENGO2_VISION_VISIONLINE,
-    Sengo21_example_Card: ZhHansMsg.SENGO2_VISION_VISIONCARD,
-    Sengo21_example_body: ZhHansMsg.SENGO2_VISION_VISIONBODY,
-
-    Sengo2_Setup: ZhHansMsg.Sengo21_Setup,
-    Sengo2_Run: ZhHansMsg.Sengo21_Run,
-    Sengo2_example: ZhHansMsg.Sengo21_example,
+    Sengo2_Setup: ZhHansMsg.Sengo2_Setup,
+    Sengo2_Run: ZhHansMsg.Sengo2_Run,
+    Sengo2_example: ZhHansMsg.Sengo2_example,
 
     Sengo2_example_Blod: ZhHansMsg.SENGO2_VISION_VISIONBLOB,
     Sengo2_example_Color: ZhHansMsg.SENGO2_VISION_VISIONCOLOR,

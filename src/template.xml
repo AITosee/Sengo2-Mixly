@@ -2,13 +2,23 @@
 <category id="mixly_Sengo2" name="Sengo2视觉传感器" colour="#EF5411">
     <category id="Sengo2_Setup" name="设置模块" colour="#EF5411">
       <block type="Sengo2Begin"></block>      <!-- 设置 SENTRY-->
+      <block type="Sengo2LedSetColor">
+        <value name="level">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>     
       <block type="Sengo2SetAWB"></block>      <!-- 设置 白平衡-->
       <block type="Sengo2VisionSetStatus"></block>      <!-- 设置 启用算法-->
-      <block type="Sengo2VisionSetParamNum"></block>      <!-- 设置 算法参数-->
+      <block type="Sengo2VisionSetParamNum"></block>
       <block type="Sengo2VisionColorSetParam"></block>
       <block type="Sengo2VisionBlobSetParam">
         <field name="lable">Sengo2::kColorRed</field>
       </block>
+      <block type="Sengo2VisionSetBlobNum"></block>
+      <block type="Sengo2VisionSetAprilTagMode"></block>
+      <block type="Sengo2VisionSetLineNum"></block>
       <block type="Sengo2VisionSetParam"></block>
     </category>
     <category id="Sengo2_Run" name="运行模块" colour="#EAA20A">
