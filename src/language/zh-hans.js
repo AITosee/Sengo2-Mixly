@@ -124,9 +124,9 @@ export const ZhHansMsg = {
     SENGO2_CLASS20_BUS: '公交车',
     SENGO2_CLASS20_CAR: '小汽车',
     SENGO2_CLASS20_CAT: '猫',
-    SENGO2_CLASS20_CHAIR: '餐桌',
+    SENGO2_CLASS20_CHAIR: '椅子',
     SENGO2_CLASS20_COW: '牛',
-    SENGO2_CLASS20_TABLE: '桌子',
+    SENGO2_CLASS20_TABLE: '餐桌',
     SENGO2_CLASS20_DOG: '狗',
     SENGO2_CLASS20_HORSE: '马',
     SENGO2_CLASS20_MOTORBIKE: '摩托车',
@@ -135,7 +135,7 @@ export const ZhHansMsg = {
     SENGO2_CLASS20_SHEEP: '羊',
     SENGO2_CLASS20_SOFA: '沙发',
     SENGO2_CLASS20_TRAIN: '火车',
-    SENGO2_CLASS20_MONITOR: '显示器',
+    SENGO2_CLASS20_MONITOR: '电视',
 
     // Sengo2 Card Type
     SENGO2_CARD_TRAFFIC: '交通卡片',
