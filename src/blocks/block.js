@@ -95,9 +95,6 @@ export const sengo2_vision_param_objs = function () {
     return [
         [Blockly.Msg.SENGO2_VISION_VISIONCOLOR, 'Sengo2::kVisionColor'],
         [Blockly.Msg.SENGO2_VISION_VISIONBLOB, 'Sengo2::kVisionBlob'],
-        [Blockly.Msg.SENGO2_VISION_VISIONLEARNING, 'Sengo2::kVisionLearning'],
-        [Blockly.Msg.SENGO2_VISION_VISIONFACE, 'Sengo2::kVisionFace'],
-        [Blockly.Msg.SENGO2_VISION_VISIONCUSTOM, 'Sengo2::kVisionCustom'],
     ]
 }
 export const sengo2_vision_custom = function () {
