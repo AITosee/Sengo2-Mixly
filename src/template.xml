@@ -2,13 +2,7 @@
 <category id="mixly_Sengo2" name="Sengo2视觉传感器" colour="#EF5411">
     <category id="Sengo2_Setup" name="设置模块" colour="#EF5411">
       <block type="Sengo2Begin"></block>      <!-- 设置 SENTRY-->
-      <block type="Sengo2LedSetColor">
-        <value name="level">
-          <shadow type="math_number">
-            <field name="NUM">1</field>
-          </shadow>
-        </value>
-      </block>     
+      <block type="Sengo2LedSetColor"></block>     
       <block type="Sengo2SetAWB"></block>      <!-- 设置 白平衡-->
       <block type="Sengo2VisionSetStatus"></block>      <!-- 设置 启用算法-->
       <block type="Sengo2VisionSetParamNum"></block>
@@ -64,16 +58,7 @@
         </value>
       </block>
       <block type="Sengo2GetQrValue"></block>
-      <block type="Sengo2GetValue">
-        <value name="sentry_value_obj">
-          <block type="Sengo2VisionCustom"></block>
-        </value>
-        <value name="index">
-          <shadow type="math_number">
-            <field name="NUM">1</field>
-          </shadow>
-        </value>
-      </block>
+
       <block type="Sengo2VisionDetected">
         <value name="sentry_detected_obj">
           <block type="Sengo2VisionColor"></block>

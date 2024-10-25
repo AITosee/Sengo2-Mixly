@@ -86,8 +86,7 @@ export const sengo2_vision_objs = function () {
         [
             Blockly.Msg.SENGO2_VISION_VISIONMOTIONDETECT,
             'Sengo2::kVisionMotionDetect',
-        ],
-        [Blockly.Msg.SENGO2_VISION_VISIONCUSTOM, 'Sengo2::kVisionCustom'],
+        ]
     ]
 }
 
@@ -137,7 +136,12 @@ export const sengo2_vision_card_objs = function () {
         [Blockly.Msg.SENGO2_CARD_LEFT, 'Sengo2::kCardLeft'],
         [Blockly.Msg.SENGO2_CARD_RIGHT, 'Sengo2::kCardRight'],
         [Blockly.Msg.SENGO2_CARD_TURN_AROUND, 'Sengo2::kCardTurnAround'],
-        [Blockly.Msg.SENGO2_CARD_PARK, 'Sengo2::kCardPark']
+        [Blockly.Msg.SENGO2_CARD_PARK, 'Sengo2::kCardPark'],
+        [Blockly.Msg.SENGO2_CARD_GREEN_LIGHT, 'Sengo2::kCardGreenLight'],
+        [Blockly.Msg.SENGO2_CARD_RED_LIGHT, 'Sengo2::kCardRedLight'],
+        [Blockly.Msg.SENGO2_CARD_SPEED_40, 'Sengo2::kCardSpeed40'],
+        [Blockly.Msg.SENGO2_CARD_SPEED_60, 'Sengo2::kCardSpeed60'],
+        [Blockly.Msg.SENGO2_CARD_SPEED_80, 'Sengo2::kCardSpeed80'],
     ]
 }
 
@@ -223,7 +227,7 @@ export const Sengo2LedSetColor = {
             .appendField(Blockly.Msg.SENGO2_LED_SET_COLOR_NOT)
             .appendField(color_undetected, 'led_color_obj2')
             .appendField(Blockly.Msg.SENGO2_LED_SET_LEVEL)
-        this.appendValueInput('level').setCheck([Number])
+            .appendField(new Blockly.FieldNumber(1, 1, 15, 1), 'level')
         this.setInputsInline(true)
         this.setPreviousStatement(true, null)
         this.setNextStatement(true, null)
