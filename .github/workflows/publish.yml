@@ -44,6 +44,7 @@ jobs:
           echo "CURRENT_VERSION=$CURRENT_PACKAGE_JSON" >> $GITHUB_ENV
           echo "PACKAGE_NAME=$PACKAGE_NAME_JSON" >> $GITHUB_ENV
           echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
+          echo "COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
 
       - name: Check if version changed
         id: version_changed
@@ -84,8 +85,7 @@ jobs:
         with:
           tag_name: ${{ env.CURRENT_VERSION }}
           name: ${{ env.CURRENT_VERSION }}
-          body: |
-            Automatic release triggered by version change.
+          body: ${{ env.COMMIT_MESSAGE }}
           draft: false
           prerelease: false
           files: |
