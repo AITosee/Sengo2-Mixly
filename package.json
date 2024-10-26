@@ -1,7 +1,7 @@
 {
     "name": "sengo2-mixly",
     "description": "适用于Mixly2.0的Sentgo2视觉传感器库",
-    "version": "0.0.5",
+    "version": "0.0.4",
     "scripts": {
         "build:dev": "webpack --config=./webpack-config/default/webpack.dev.js",
         "build:dev:2.0rc3": "webpack --config=./webpack-config/mixly2.0-rc3/webpack.dev.js",
