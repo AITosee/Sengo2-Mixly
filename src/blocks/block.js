@@ -98,9 +98,6 @@ export const sengo2_vision_param_objs = function () {
 }
 export const sengo2_vision_custom = function () {
     return [
-        [Blockly.Msg.SENGO2_VISION_VISIONCUSTOM, 'Sengo2::kVisionCustom'],
-        [Blockly.Msg.SENGO2_VISION_VISIONCOLOR, 'Sengo2::kVisionColor'],
-        [Blockly.Msg.SENGO2_VISION_VISIONBLOB, 'Sengo2::kVisionBlob'],
         [Blockly.Msg.SENGO2_VISION_VISIONLEARNING, 'Sengo2::kVisionLearning'],
         [Blockly.Msg.SENGO2_VISION_VISIONFACE, 'Sengo2::kVisionFace'],
     ]
@@ -467,27 +464,33 @@ export const Sengo2VisionSetParam = {
     init: function () {
         this.appendDummyInput()
             .appendField(
-                Blockly.Msg.SENGO2_SET +
-                Blockly.Msg.SENGO2_NAME +
-                Blockly.Msg.SENGO2_VISION_EN
+                Blockly.Msg.SENGO_SET +
+                    Blockly.Msg.SENGO1_NAME +
+                    Blockly.Msg.SENGO_VISION_EN
             )
             .appendField(
                 new Blockly.FieldDropdown(sengo2_vision_custom()),
                 'vision_obj'
             )
-        this.appendDummyInput('VisionParam')
-            .appendField(Blockly.Msg.SENGO2_SET_PARAM + '1')
-            .appendField(new Blockly.FieldNumber(0, 0, 9999, 1), 'x')
-            .appendField(Blockly.Msg.SENGO2_SET_PARAM + '2')
-            .appendField(new Blockly.FieldNumber(0, 0, 9999, 1), 'y')
-            .appendField(Blockly.Msg.SENGO2_SET_PARAM + '3')
-            .appendField(new Blockly.FieldNumber(0, 0, 9999, 1), 'w')
-            .appendField(Blockly.Msg.SENGO2_SET_PARAM + '4')
-            .appendField(new Blockly.FieldNumber(0, 0, 9999, 1), 'h')
-            .appendField(Blockly.Msg.SENGO2_SET_PARAM + '5')
-            .appendField(new Blockly.FieldNumber(0, 0, 9999, 1), 'lable')
-            .appendField(Blockly.Msg.SENGO2_SET_PARAM_GROUP)
-            .appendField(new Blockly.FieldNumber(1, 1, 25, 1), 'index')
+            .appendField("  ")
+            .appendField(
+                new Blockly.FieldDropdown([
+                    [
+                        Blockly.Msg.SENGO2_SAVE_DATA,
+                        '100',
+                    ],
+                    [
+                        Blockly.Msg.SENGO2_DEL_DATA,
+                        '0',
+                    ],
+                ]),
+                'lable'
+            )
+            .appendField(
+                Blockly.Msg.SENGO2_SET_ID
+            )
+        this.appendValueInput('index').setCheck([Number])
+        this.setInputsInline(true)
         this.setPreviousStatement(true, null)
         this.setNextStatement(true, null)
         this.setColour('#EF5411')
