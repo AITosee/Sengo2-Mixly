@@ -23,7 +23,7 @@ jobs:
       - name: Get previous and current package.json contents
         id: package_json
         run: |
-          PREVIOUS_COMMIT=$(git rev-parse HEAD&#126;1)
+          PREVIOUS_COMMIT=$(git rev-parse HEAD~1)
           CURRENT_COMMIT=$(git rev-parse HEAD)
 
           PREVIOUS_PACKAGE_JSON=$(git show "$PREVIOUS_COMMIT:package.json" | jq -r .version)
