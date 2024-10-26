@@ -58,7 +58,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{ env.CURRENT_VERSION }}
-          release_name: Release v${ env.CURRENT_VERSION }
+          release_name: Release v${{ env.CURRENT_VERSION }}
           body: Automatic release triggered by version change in package.json
           draft: false
           prerelease: false
