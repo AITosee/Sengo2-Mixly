@@ -10,11 +10,11 @@ module.exports = {
     cache: false,
     target: ['web', 'es5'],
     entry: {
-        'block/sentry': path.resolve(ORI_DIR, 'src/index.js'),
-        'generator/sentry': path.resolve(__dirname, 'generator.js'),
-        'language/sentry/zh-hans': path.resolve(__dirname, 'language/zh-hans.js'),
-        'language/sentry/zh-hant': path.resolve(__dirname, 'language/zh-hant.js'),
-        'language/sentry/en': path.resolve(__dirname, 'language/en.js')
+        'block/sengo2': path.resolve(ORI_DIR, 'src/index.js'),
+        'generator/sengo2': path.resolve(__dirname, 'generator.js'),
+        'language/sengo2/zh-hans': path.resolve(__dirname, 'language/zh-hans.js'),
+        'language/sengo2/zh-hant': path.resolve(__dirname, 'language/zh-hant.js'),
+        'language/sengo2/en': path.resolve(__dirname, 'language/en.js')
     },
     output: {
         filename: '[name].js',
@@ -53,7 +53,7 @@ module.exports = {
                     },
                 },
                 generator: {
-                    filename: 'media/sentry/[name]_[hash:8][ext]',
+                    filename: 'media/sengo2/[name]_[hash:8][ext]',
                 },
             },
             {
@@ -82,7 +82,7 @@ module.exports = {
             patterns: [
                 {
                     from: path.resolve(ORI_DIR, 'origin/libraries/Sengo2-Arduino'),
-                    to: path.resolve(DEST_DIR, 'Sentry'),
+                    to: path.resolve(DEST_DIR, 'Sentry-Arduino'),
                     noErrorOnMissing: true
                 }
             ],

@@ -6,13 +6,13 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 
 const libInfo = `<!--
   type="company"
-  block="block/sentry.js"
-  generator="generator/sentry.js"
+  block="block/sengo2.js"
+  generator="generator/sengo2.js"
   lib="Sengo2"
-  media="media/sentry"
-  language="language/sentry"
+  media="media/sengo2"
+  language="language/sengo2"
 -->
-<script type="text/javascript" src="../../blocks/company/sentry.js"></script>`;
+<script type="text/javascript" src="../../blocks/company/sengo2.js"></script>`;
 
 
 module.exports = merge(common, {
@@ -29,11 +29,11 @@ module.exports = merge(common, {
             minify: false,
             publicPath: `../../`,
             excludeChunks: [
-                'language/sentry/zh-hans',
-                'language/sentry/zh-hant',
-                'language/sentry/en',
-                'block/sentry',
-                'generator/sentry'
+                'language/sengo2/zh-hans',
+                'language/sengo2/zh-hant',
+                'language/sengo2/en',
+                'block/sengo2',
+                'generator/sengo2'
             ],
             templateParameters: (compilation, assets, assetTags, options) => {
                 assetTags.headTags.push(libInfo);
