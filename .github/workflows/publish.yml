@@ -37,7 +37,7 @@ jobs:
           PREVIOUS_PACKAGE_JSON=v$(git show "$PREVIOUS_COMMIT:package.json" | jq -r .version)
           CURRENT_PACKAGE_JSON=v$(jq -r .version package.json)
           PACKAGE_NAME_JSON=$(jq -r .name package.json)
-          RELEASE_NAME=${GITHUB_REPOSITORY#*/}-$PACKAGE_NAME_JSON
+          RELEASE_NAME=${GITHUB_REPOSITORY#*/}-$CURRENT_PACKAGE_JSON
 
           # 将版本号写入环境文件
           echo "PREVIOUS_VEvRSION=$PREVIOUS_PACKAGE_JSON" >> $GITHUB_ENV
