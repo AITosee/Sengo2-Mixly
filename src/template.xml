@@ -13,7 +13,12 @@
       <block type="Sengo2VisionSetBlobNum"></block>
       <block type="Sengo2VisionSetAprilTagMode"></block>
       <block type="Sengo2VisionSetLineNum"></block>
-      <block type="Sengo2VisionSetParam"></block>
+      <block type="Sengo2VisionSetParam">       
+       <value name="index">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value></block>
     </category>
     <category id="Sengo2_Run" name="运行模块" colour="#EAA20A">
       <block type="Sengo2VisionDetectedCount"></block>

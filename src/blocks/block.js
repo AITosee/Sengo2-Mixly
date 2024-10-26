@@ -464,9 +464,9 @@ export const Sengo2VisionSetParam = {
     init: function () {
         this.appendDummyInput()
             .appendField(
-                Blockly.Msg.SENGO_SET +
-                    Blockly.Msg.SENGO1_NAME +
-                    Blockly.Msg.SENGO_VISION_EN
+                Blockly.Msg.SENGO2_SET +
+                Blockly.Msg.SENGO2_NAME +
+                Blockly.Msg.SENGO2_VISION_EN
             )
             .appendField(
                 new Blockly.FieldDropdown(sengo2_vision_custom()),
