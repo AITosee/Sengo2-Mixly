@@ -1,0 +1,55 @@
+name: Publish Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-and-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2  # Fetch the last 2 commits to compare
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # or any other version you need
+
+      - name: Get previous and current package.json contents
+        id: package_json
+        run: |
+          PREVIOUS_COMMIT=$(git rev-parse HEAD&#126;1)
+          CURRENT_COMMIT=$(git rev-parse HEAD)
+
+          PREVIOUS_PACKAGE_JSON=$(git show "$PREVIOUS_COMMIT:package.json" | jq -r .version)
+          CURRENT_PACKAGE_JSON=$(jq -r .version package.json)
+
+          echo "::set-output name=previous_version::$PREVIOUS_PACKAGE_JSON"
+          echo "::set-output name=current_version::$CURRENT_PACKAGE_JSON"
+
+      - name: Check if version changed
+        id: version_changed
+        run: |
+          if [ "${{ steps.package_json.outputs.previous_version }}" != "${{ steps.package_json.outputs.current_version }}" ]; then
+            echo "::set-output name=changed::true"
+          else
+            echo "::set-output name=changed::false"
+          fi
+
+      - name: Create Release
+        if: ${{ steps.version_changed.outputs.changed == 'true' }}
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ steps.package_json.outputs.current_version }}
+          release_name: Release v${{ steps.package_json.outputs.current_version }}
+          body: Automatic release triggered by version change in package.json
+          draft: false
+          prerelease: false
