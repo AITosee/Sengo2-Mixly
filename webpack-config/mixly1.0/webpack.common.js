@@ -82,7 +82,7 @@ module.exports = {
             patterns: [
                 {
                     from: path.resolve(ORI_DIR, 'origin/libraries/Sengo2-Arduino'),
-                    to: path.resolve(DEST_DIR, 'Sengo2'),
+                    to: path.resolve(DEST_DIR, 'Sentry'),
                     noErrorOnMissing: true
                 }
             ],
