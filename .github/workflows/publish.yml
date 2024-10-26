@@ -36,10 +36,14 @@ jobs:
           CURRENT_COMMIT=$(git rev-parse HEAD)
           PREVIOUS_PACKAGE_JSON=$(git show "$PREVIOUS_COMMIT:package.json" | jq -r .version)
           CURRENT_PACKAGE_JSON=$(jq -r .version package.json)
-          
+          PACKAGE_NAME_JSON=$(jq -r .version package.json)
+          RELEASE_NAME=${GITHUB_REPOSITORY#*/}-$PACKAGE_NAME_JSON
+
           # 将版本号写入环境文件
           echo "PREVIOUS_VERSION=$PREVIOUS_PACKAGE_JSON" >> $GITHUB_ENV
           echo "CURRENT_VERSION=$CURRENT_PACKAGE_JSON" >> $GITHUB_ENV
+          echo "PACKAGE_NAME=$PACKAGE_NAME_JSON" >> $GITHUB_ENV
+          echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
 
       - name: Check if version changed
         id: version_changed
@@ -49,12 +53,6 @@ jobs:
           else
             echo "VERSION_CHANGED=false" >> $GITHUB_ENV
           fi
-          
-      - name: Get repository and package name
-        id: vars
-        run: |
-            echo ::set-output name=repository::${GITHUB_REPOSITORY#*/}
-            echo ::set-output name=package::${GITHUB_REPOSITORY#*/}-${GITHUB_REF/refs\/tags\//}
             
       - name: Build default package
         run: |
@@ -62,8 +60,8 @@ jobs:
           npm run build:prod
           cd dist 
           PACK_DIR=${GITHUB_REPOSITORY#*/}
-          zip -r ${{steps.vars.outputs.package}}.zip ${PACK_DIR,,}
-          cp -rv ${{steps.vars.outputs.package}}.zip ${GITHUB_WORKSPACE}
+          zip -r ${RELEASE_NAME}.zip ${PACK_DIR,,}
+          cp -rv ${RELEASE_NAME}.zip ${GITHUB_WORKSPACE}
           
       - name: Build 2.0rc3 package
         run: |
@@ -71,8 +69,8 @@ jobs:
           npm run build:prod:2.0rc3
           cd dist 
           PACK_DIR=${GITHUB_REPOSITORY#*/}
-          zip -r ${{ steps.vars.outputs.package }}_mixly2.0rc3.zip ${PACK_DIR,,}
-          cp -rv ${{ steps.vars.outputs.package }}_mixly2.0rc3.zip ${GITHUB_WORKSPACE}
+          zip -r ${RELEASE_NAME}_mixly2.0rc3.zip ${PACK_DIR,,}
+          cp -rv ${RELEASE_NAME}_mixly2.0rc3.zip ${GITHUB_WORKSPACE}
           
       - name: Build 1.0 package
         run: |
@@ -80,8 +78,8 @@ jobs:
           npm run build:prod:1.0
           cd dist 
           PACK_DIR=${GITHUB_REPOSITORY#*/}
-          zip -r ${{ steps.vars.outputs.package }}_mixly1.x.zip ${PACK_DIR,,}
-          cp -rv ${{ steps.vars.outputs.package }}_mixly1.x.zip ${GITHUB_WORKSPACE}
+          zip -r ${RELEASE_NAME}_mixly1.x.zip ${PACK_DIR,,}
+          cp -rv ${RELEASE_NAME}_mixly1.x.zip ${GITHUB_WORKSPACE}
           
       - name: Create Release and Upload Release Asset
         if: env.VERSION_CHANGED == 'true'
@@ -91,14 +89,12 @@ jobs:
           name: v${{ env.CURRENT_VERSION }}
           body: |
             Automatic release triggered by version change.
-            - Changes in this release:
-              <!-- 这里可以添加一些自动生成的更改日志 -->
           draft: false
           prerelease: false
           files: |
-           ${{ steps.vars.outputs.package }}.zip
-           ${{ steps.vars.outputs.package }}_mixly2.0rc3.zip
-           ${{ steps.vars.outputs.package }}_mixly1.x.zip
+           ${RELEASE_NAME}.zip
+           ${RELEASE_NAME}_mixly2.0rc3.zip
+           ${RELEASE_NAME}_mixly1.x.zip
 
 
           
