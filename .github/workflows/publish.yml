@@ -38,13 +38,14 @@ jobs:
           CURRENT_PACKAGE_JSON=v$(jq -r .version package.json)
           PACKAGE_NAME_JSON=$(jq -r .name package.json)
           RELEASE_NAME=${GITHUB_REPOSITORY#*/}-$CURRENT_PACKAGE_JSON
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
 
           # 将版本号写入环境文件
           echo "PREVIOUS_VEvRSION=$PREVIOUS_PACKAGE_JSON" >> $GITHUB_ENV
           echo "CURRENT_VERSION=$CURRENT_PACKAGE_JSON" >> $GITHUB_ENV
           echo "PACKAGE_NAME=$PACKAGE_NAME_JSON" >> $GITHUB_ENV
           echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
-          echo "COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+          echo "COMMIT_MESSAGE=$COMMIT_MESSAGE" >> $GITHUB_ENV
 
       - name: Check if version changed
         id: version_changed
