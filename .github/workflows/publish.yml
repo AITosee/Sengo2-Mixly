@@ -49,16 +49,56 @@ jobs:
           else
             echo "VERSION_CHANGED=false" >> $GITHUB_ENV
           fi
-
-      - name: Create Release
+          
+      - name: Get repository and package name
+        id: vars
+        run: |
+            echo ::set-output name=repository::${GITHUB_REPOSITORY#*/}
+            echo ::set-output name=package::${GITHUB_REPOSITORY#*/}-${GITHUB_REF/refs\/tags\//}
+            
+      - name: Build default package
+        run: |
+          npm install
+          npm run build:prod
+          cd dist 
+          PACK_DIR=${GITHUB_REPOSITORY#*/}
+          zip -r ${{steps.vars.outputs.package}}.zip ${PACK_DIR,,}
+          cp -rv ${{steps.vars.outputs.package}}.zip ${GITHUB_WORKSPACE}
+          
+      - name: Build 2.0rc3 package
+        run: |
+          npm install
+          npm run build:prod:2.0rc3
+          cd dist 
+          PACK_DIR=${GITHUB_REPOSITORY#*/}
+          zip -r ${{ steps.vars.outputs.package }}_mixly2.0rc3.zip ${PACK_DIR,,}
+          cp -rv ${{ steps.vars.outputs.package }}_mixly2.0rc3.zip ${GITHUB_WORKSPACE}
+          
+      - name: Build 1.0 package
+        run: |
+          npm install
+          npm run build:prod:1.0
+          cd dist 
+          PACK_DIR=${GITHUB_REPOSITORY#*/}
+          zip -r ${{ steps.vars.outputs.package }}_mixly1.x.zip ${PACK_DIR,,}
+          cp -rv ${{ steps.vars.outputs.package }}_mixly1.x.zip ${GITHUB_WORKSPACE}
+          
+      - name: Create Release and Upload Release Asset
         if: env.VERSION_CHANGED == 'true'
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ env.CURRENT_VERSION }}
-          release_name: Release v${{ env.CURRENT_VERSION }}
-          body: Automatic release triggered by version change in package.json
+          name: v${{ env.CURRENT_VERSION }}
+          body: |
+            Automatic release triggered by version change.
+            - Changes in this release:
+              <!-- 这里可以添加一些自动生成的更改日志 -->
           draft: false
           prerelease: false
+          files: |
+           ${{ steps.vars.outputs.package }}.zip
+           ${{ steps.vars.outputs.package }}_mixly2.0rc3.zip
+           ${{ steps.vars.outputs.package }}_mixly1.x.zip
+
+
+          
