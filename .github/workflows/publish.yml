@@ -8,48 +8,57 @@ on:
 jobs:
   check-and-publish:
     runs-on: ubuntu-latest
-
+    environment:
+      name: Release Environment # 这个环境名称是可选的，用于组织您的工作环境
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout code with submodules
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 2  # Fetch the last 2 commits to compare
+          fetch-depth: 2 # Fetch the last 2 commits to compare
+          submodules: true # Checkout submodules
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  # or any other version you need
+          node-version: '14' # or any other version you need
+
+      - name: Initialize and update submodules (if any)
+        run: |
+          # Initialize submodules if they exist
+          if [ -f .gitmodules ]; then
+            git submodule update --init --recursive
+          fi
 
       - name: Get previous and current package.json contents
         id: package_json
         run: |
           PREVIOUS_COMMIT=$(git rev-parse HEAD~1)
           CURRENT_COMMIT=$(git rev-parse HEAD)
-
           PREVIOUS_PACKAGE_JSON=$(git show "$PREVIOUS_COMMIT:package.json" | jq -r .version)
           CURRENT_PACKAGE_JSON=$(jq -r .version package.json)
-
-          echo "::set-output name=previous_version::$PREVIOUS_PACKAGE_JSON"
-          echo "::set-output name=current_version::$CURRENT_PACKAGE_JSON"
+          
+          # 将版本号写入环境文件
+          echo "PREVIOUS_VERSION=$PREVIOUS_PACKAGE_JSON" >> $GITHUB_ENV
+          echo "CURRENT_VERSION=$CURRENT_PACKAGE_JSON" >> $GITHUB_ENV
 
       - name: Check if version changed
         id: version_changed
         run: |
-          if [ "${{ steps.package_json.outputs.previous_version }}" != "${{ steps.package_json.outputs.current_version }}" ]; then
-            echo "::set-output name=changed::true"
+          if [ "$PREVIOUS_VERSION" != "$CURRENT_VERSION" ]; then
+            echo "VERSION_CHANGED=true" >> $GITHUB_ENV
           else
-            echo "::set-output name=changed::false"
+            echo "VERSION_CHANGED=false" >> $GITHUB_ENV
           fi
 
       - name: Create Release
-        if: ${{ steps.version_changed.outputs.changed == 'true' }}
+        if: env.VERSION_CHANGED == 'true'
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ steps.package_json.outputs.current_version }}
-          release_name: Release v${{ steps.package_json.outputs.current_version }}
+          tag_name: v${CURRENT_VERSION}
+          release_name: Release v${CURRENT_VERSION}
           body: Automatic release triggered by version change in package.json
           draft: false
           prerelease: false
