@@ -22,13 +22,6 @@ jobs:
         with:
           node-version: '14' # or any other version you need
 
-      - name: Initialize and update submodules (if any)
-        run: |
-          # Initialize submodules if they exist
-          if [ -f .gitmodules ]; then
-            git submodule update --init --recursive
-          fi
-
       - name: Get previous and current package.json contents
         id: package_json
         run: |
@@ -39,12 +32,13 @@ jobs:
           PACKAGE_NAME_JSON=$(jq -r .name package.json)
           RELEASE_NAME=${GITHUB_REPOSITORY#*/}-$CURRENT_PACKAGE_JSON
 
-          # 将版本号写入环境文件
           echo "PREVIOUS_VERSION=$PREVIOUS_PACKAGE_JSON" >> $GITHUB_ENV
           echo "CURRENT_VERSION=$CURRENT_PACKAGE_JSON" >> $GITHUB_ENV
           echo "PACKAGE_NAME=$PACKAGE_NAME_JSON" >> $GITHUB_ENV
           echo "RELEASE_NAME=$RELEASE_NAME" >> $GITHUB_ENV
-
+          
+          tree
+          
       - name: Check if version changed
         id: version_changed
         run: |
@@ -59,6 +53,7 @@ jobs:
           npm install
           npm run build:prod
           cd dist 
+          tree
           zip -r ${RELEASE_NAME}.zip ${PACKAGE_NAME}
           cp -rv ${RELEASE_NAME}.zip ${GITHUB_WORKSPACE}
           
@@ -67,6 +62,7 @@ jobs:
           npm install
           npm run build:prod:2.0rc3
           cd dist 
+          tree
           zip -r ${RELEASE_NAME}_mixly2.0rc3.zip ${PACKAGE_NAME}
           cp -rv ${RELEASE_NAME}_mixly2.0rc3.zip ${GITHUB_WORKSPACE}
           
@@ -75,6 +71,7 @@ jobs:
           npm install
           npm run build:prod:1.0
           cd dist 
+          tree
           zip -r ${RELEASE_NAME}_mixly1.x.zip ${PACKAGE_NAME}
           cp -rv ${RELEASE_NAME}_mixly1.x.zip ${GITHUB_WORKSPACE}
           
