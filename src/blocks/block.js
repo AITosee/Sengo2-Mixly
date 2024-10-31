@@ -1,7 +1,7 @@
 import * as Blockly from 'blockly/core'
 import { Profile } from 'mixly'
 
-Profile = Profile ?? window.profile
+Profile = Profile?.default ? Profile : window.profile
 
 export const white_balance_objs = function () {
     return [
