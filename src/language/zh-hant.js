@@ -126,7 +126,7 @@ export const ZhHantMsg = {
     SENGO2_CLASS20_BOAT: '船',
     SENGO2_CLASS20_BOTTLE: '瓶子',
     SENGO2_CLASS20_BUS: '公交車',
-    SENGO2_CLASS20_CAR: '小汽車',
+    SENGO2_CLASS20_CAR: '汽車',
     SENGO2_CLASS20_CAT: '貓',
     SENGO2_CLASS20_CHAIR: '餐桌',
     SENGO2_CLASS20_COW: '牛',
