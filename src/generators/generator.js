@@ -67,39 +67,105 @@ export const Sengo2VisionSetStatus = function (_, generator) {
 export const Sengo2VisionSetParamNum = function (_, generator) {
     generator = generator ?? Blockly.Arduino
     var dropdown_vision_obj = this.getFieldValue('vision_obj')
-    var input_num = this.getFieldValue('num')
+    var input_num =
+        generator.valueToCode(this, 'num', generator.ORDER_ATOMIC) || '1'
 
     return `sengo2.SetParamNum(${dropdown_vision_obj},${input_num});\n`
 }
 
-export const Sengo2VisionSetParam = function (_, generator) {
+export const Sengo2VisionColorSetParam = function (_, generator) {
     generator = generator ?? Blockly.Arduino
     var dropdown_vision_obj = this.getFieldValue('vision_obj')
-    var input_index = this.getFieldValue('index')
-    var input_x = this.getFieldValue('x')
-    var input_y = this.getFieldValue('y')
-    var input_w = this.getFieldValue('w')
-    var input_h = this.getFieldValue('h')
-    var input_l = this.getFieldValue('lable')
+
+    var input_index =
+        generator.valueToCode(this, 'index', generator.ORDER_ATOMIC)
+    var input_x =
+        generator.valueToCode(this, 'x', generator.ORDER_ATOMIC)
+    var input_y =
+        generator.valueToCode(this, 'y', generator.ORDER_ATOMIC)
+    var input_w =
+        generator.valueToCode(this, 'w', generator.ORDER_ATOMIC)
+    var input_h =
+        generator.valueToCode(this, 'h', generator.ORDER_ATOMIC)
 
     generator.definitions_['param_obj'] = 'sentry_object_t param;\n'
 
     var code = '\n'
-    if (input_x != null) code += `param.x_value = ${input_x};\n`
-    if (input_y != null) code += `param.y_value = ${input_y};\n`
-    if (input_w != null) code += `param.width = ${input_w};\n`
-    if (input_h != null) code += `param.height = ${input_h};\n`
-    if (input_l != null) code += `param.label = ${input_l};\n`
+    code += `param.x_value = ${input_x};\n`
+    code += `param.y_value = ${input_y};\n`
+    code += `param.width = ${input_w};\n`
+    code += `param.height = ${input_h};\n`
+    code += `param.label = 0;\n`
 
     code += `sengo2.SetParam(${dropdown_vision_obj},&param,${input_index});\n`
 
     return code
 }
 
-export const Sengo2VisionBlobSetParam = Sengo2VisionSetParam
-export const Sengo2VisionColorSetParam = Sengo2VisionSetParam
+export const Sengo2VisionBlobSetParam = function (_, generator) {
+    generator = generator ?? Blockly.Arduino
+    var dropdown_vision_obj = this.getFieldValue('vision_obj')
 
+    var input_index =
+        generator.valueToCode(this, 'index', generator.ORDER_ATOMIC)
+    var input_x = 0
+    var input_y = 0
+    var input_w =
+        generator.valueToCode(this, 'w', generator.ORDER_ATOMIC)
+    var input_h =
+        generator.valueToCode(this, 'h', generator.ORDER_ATOMIC)
+
+    var input_l = this.getFieldValue('lable')
+
+    generator.definitions_['param_obj'] = 'sentry_object_t param;\n'
+
+    var code = '\n'
+    code += `param.x_value = ${input_x};\n`
+    code += `param.y_value = ${input_y};\n`
+    code += `param.width = ${input_w};\n`
+    code += `param.height = ${input_h};\n`
+    code += `param.label = ${input_l};\n`
+
+    code += `sengo2.SetParam(${dropdown_vision_obj},&param,${input_index});\n`
+
+    return code
+}
+export const Sengo2VisionSetParam = function (_, generator) {
+    generator = generator ?? Blockly.Arduino
+    var dropdown_vision_obj = this.getFieldValue('vision_obj')
+    var input_index =
+        generator.valueToCode(this, 'index', generator.ORDER_ATOMIC)
+    var input_x = 0
+    var input_y = 0
+    var input_w = 0
+    var input_h = 0
+
+    var input_l = this.getFieldValue('lable')
+
+    generator.definitions_['param_obj'] = 'sentry_object_t param;\n'
+
+    var code = '\n'
+    code += `param.x_value = ${input_x};\n`
+    code += `param.y_value = ${input_y};\n`
+    code += `param.width = ${input_w};\n`
+    code += `param.height = ${input_h};\n`
+    code += `param.label = ${input_l};\n`
+
+    code += `sengo2.SetParam(${dropdown_vision_obj},&param,${input_index});\n`
+
+    return code
+}
 export const Sengo2VisionSetBlobNum = function (_, generator) {
+    generator = generator ?? Blockly.Arduino
+    var dropdown_vision_obj = this.getFieldValue('vision_obj')
+    var input_mode = generator.valueToCode(this, 'num', generator.ORDER_ATOMIC)
+
+    var code = `sengo2.VisionSetMode(${dropdown_vision_obj},${input_mode});\n`
+
+    return code
+}
+
+export const Sengo2VisionSetAprilTagMode = function (_, generator) {
     generator = generator ?? Blockly.Arduino
     var dropdown_vision_obj = this.getFieldValue('vision_obj')
     var input_mode = this.getFieldValue('mode')
@@ -109,8 +175,15 @@ export const Sengo2VisionSetBlobNum = function (_, generator) {
     return code
 }
 
-export const Sengo2VisionSetLineNum = Sengo2VisionSetBlobNum
-export const Sengo2VisionSetAprilTagMode = Sengo2VisionSetBlobNum
+export const Sengo2VisionSetLineNum = function (_, generator) {
+    generator = generator ?? Blockly.Arduino
+    var dropdown_vision_obj = this.getFieldValue('vision_obj')
+    var input_mode = generator.valueToCode(this, 'num', generator.ORDER_ATOMIC)
+
+    var code = `sengo2.VisionSetMode(${dropdown_vision_obj},${input_mode});\n`
+
+    return code
+}
 
 export const Sengo2LedSetColor = function (_, generator) {
     generator = generator ?? Blockly.Arduino

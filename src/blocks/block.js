@@ -224,7 +224,7 @@ export const Sengo2LedSetColor = {
             .appendField(Blockly.Msg.SENGO2_LED_SET_COLOR_NOT)
             .appendField(color_undetected, 'led_color_obj2')
             .appendField(Blockly.Msg.SENGO2_LED_SET_LEVEL)
-            .appendField(new Blockly.FieldNumber(1, 1, 15, 1), 'level')
+        this.appendValueInput('level').setCheck([Number])
         this.setInputsInline(true)
         this.setPreviousStatement(true, null)
         this.setNextStatement(true, null)
@@ -289,8 +289,9 @@ export const Sengo2VisionSetParamNum = {
                 new Blockly.FieldDropdown(sengo2_vision_param_objs()),
                 'vision_obj'
             )
-            .appendField(' ')
-            .appendField(new Blockly.FieldNumber(1, 1, 25, 1), 'num')
+        this.appendValueInput('num').setCheck([Number])
+            .appendField("  ")
+        this.appendDummyInput()
             .appendField(Blockly.Msg.SENGO2_SET_PARAMNUM)
         this.setPreviousStatement(true, null)
         this.setNextStatement(true, null)
@@ -315,22 +316,26 @@ export const Sengo2VisionColorSetParam = {
                 ]),
                 'vision_obj'
             )
-        this.appendDummyInput('VisionParam')
+        this.appendDummyInput()
             .appendField(
-                Blockly.Msg.SENGO2_CENTER + Blockly.Msg.SENGO2_STATE_VALUE_X
+                "  " + Blockly.Msg.SENGO2_CENTER + Blockly.Msg.SENGO2_STATE_VALUE_X
             )
-            .appendField(new Blockly.FieldNumber(50, 0, 9999, 1), 'x')
+        this.appendValueInput('x').setCheck([Number])
+        this.appendDummyInput()
             .appendField(
                 Blockly.Msg.SENGO2_CENTER + Blockly.Msg.SENGO2_STATE_VALUE_Y
             )
-            .appendField(new Blockly.FieldNumber(50, 0, 9999, 1), 'y')
+        this.appendValueInput('y').setCheck([Number])
+        this.appendDummyInput()
             .appendField(Blockly.Msg.SENGO2_STATE_VALUE_WIDTH)
-            .appendField(new Blockly.FieldNumber(3, 0, 9999, 1), 'w')
+        this.appendValueInput('w').setCheck([Number])
+        this.appendDummyInput()
             .appendField(Blockly.Msg.SENGO2_STATE_VALUE_HEIGHT)
-            .appendField(new Blockly.FieldNumber(4, 0, 9999, 1), 'h')
+        this.appendValueInput('h').setCheck([Number])
+        this.appendValueInput('index').setCheck([Number])
             .appendField(Blockly.Msg.SENGO2_SET_PARAM_GROUP)
-            .appendField(new Blockly.FieldNumber(1, 1, 25, 1), 'index')
         this.setPreviousStatement(true, null)
+        this.setInputsInline(true)
         this.setNextStatement(true, null)
         this.setColour('#EF5411')
     },
@@ -353,19 +358,22 @@ export const Sengo2VisionBlobSetParam = {
                 ]),
                 'vision_obj'
             )
-        this.appendDummyInput('VisionParam')
-            .appendField(Blockly.Msg.SENGO2_WEIGHT)
-            .appendField(new Blockly.FieldNumber(3, 0, 9999, 1), 'w')
+        this.appendDummyInput()
+            .appendField("  " + Blockly.Msg.SENGO2_WEIGHT)
+        this.appendValueInput('w').setCheck([Number])
+        this.appendDummyInput()
             .appendField(Blockly.Msg.SENGO2_HEIGHT)
-            .appendField(new Blockly.FieldNumber(4, 0, 9999, 1), 'h')
+        this.appendValueInput('h').setCheck([Number])
+        this.appendDummyInput()
             .appendField(Blockly.Msg.SENGO2_COLOR)
             .appendField(
                 new Blockly.FieldDropdown(sengo2_vision_blod_objs()),
                 'lable'
             )
+        this.appendValueInput('index').setCheck([Number])
             .appendField(Blockly.Msg.SENGO2_SET_PARAM_GROUP)
-            .appendField(new Blockly.FieldNumber(1, 1, 25, 1), 'index')
         this.setPreviousStatement(true, null)
+        this.setInputsInline(true)
         this.setNextStatement(true, null)
         this.setColour('#EF5411')
     },
@@ -390,7 +398,7 @@ export const Sengo2VisionSetBlobNum = {
             )
         this.appendDummyInput()
             .appendField("  "+ Blockly.Msg.SENGO2_EVERY_CLOLR)
-            .appendField(new Blockly.FieldNumber(1, 1, 5, 1), 'mode')
+        this.appendValueInput('num').setCheck([Number])
         this.setPreviousStatement(true, null)
         this.setNextStatement(true, null)
         this.setInputsInline(true)
@@ -417,7 +425,7 @@ export const Sengo2VisionSetLineNum = {
             )
         this.appendDummyInput()
             .appendField("  "+ Blockly.Msg.SENGO2_VISION_MAX_RESULT)
-            .appendField(new Blockly.FieldNumber(1, 1, 5, 1), 'mode')
+        this.appendValueInput('num').setCheck([Number])
         this.setPreviousStatement(true, null)
         this.setNextStatement(true, null)
         this.setInputsInline(true)
