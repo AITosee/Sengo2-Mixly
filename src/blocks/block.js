@@ -454,9 +454,9 @@ export const Sengo2VisionSetAprilTagMode = {
             .appendField("  "+ Blockly.Msg.SENGO2_VISION_TAG_CODE)
             .appendField(
                 new Blockly.FieldDropdown([
+                    ["36H11",'Sengo2::kVisionModeFamily36H11'],
                     ["16H5",'Sengo2::kVisionModeFamily16H5'],
                     ["25H9",'Sengo2::kVisionModeFamily25H9'],
-                    ["36H11",'Sengo2::kVisionModeFamily36H11'],
                 ]),
                 'mode'
             )
