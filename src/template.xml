@@ -8,7 +8,7 @@
         </shadow>
       </value>
     </block>
-    <block type="Sengo2SetAWB"></block>    <!-- 设置 白平衡-->
+    <!-- <block type="Sengo2SetAWB"></block>    设置 白平衡 -->
     <block type="Sengo2VisionSetStatus"></block>    <!-- 设置 启用算法-->
     <block type="Sengo2VisionSetParamNum">
       <value name="num">
