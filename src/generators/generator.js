@@ -203,7 +203,7 @@ export const Sengo2LedSetColor = function (_, generator) {
     var dropdown_led_color_obj2 =
         color_dic[this.getFieldValue('led_color_obj2')]
 
-    var input_level = this.getFieldValue('level')
+    var input_level = generator.valueToCode(this, 'level', generator.ORDER_ATOMIC) || 1
 
     return `sengo2.LedSetColor(${dropdown_led_color_obj1},${dropdown_led_color_obj2},${input_level});\n`
 }
