@@ -168,10 +168,7 @@ export const Sengo2Begin = {
             .appendField(Blockly.Msg.SENGO2_ADDR)
             .appendField(
                 new Blockly.FieldDropdown([
-                    ['0x60', '0x60'],
-                    ['0x61', '0x61'],
-                    ['0x62', '0x62'],
-                    ['0x63', '0x63'],
+                    ['0x60', '0x60']
                 ]),
                 'addr_obj'
             )
