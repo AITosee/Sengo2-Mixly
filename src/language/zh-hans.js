@@ -140,7 +140,7 @@ export const ZhHansMsg = {
     SENGO2_CLASS20_SHEEP: '羊',
     SENGO2_CLASS20_SOFA: '沙发',
     SENGO2_CLASS20_TRAIN: '火车',
-    SENGO2_CLASS20_MONITOR: '监视器',
+    SENGO2_CLASS20_MONITOR: '显示器',
 
     // Sengo2 Card Type
     SENGO2_CARD_TRAFFIC: '交通卡片',
