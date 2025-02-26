@@ -667,8 +667,9 @@ export const Sengo2GetQrValue = {
             [Blockly.Msg.SENGO2_VISION_VISIONQRCODE, 'Sengo2::kVisionQrCode'],
         ]
         this.appendDummyInput()
-            .appendField(Blockly.Msg.SENGO2_NAME)
-            .appendField(Blockly.Msg.SENGO2_VISION_EN)
+            .appendField(
+                Blockly.Msg.SENGO2_NAME + Blockly.Msg.SENGO2_VISION_EN
+            )
             .appendField(new Blockly.FieldDropdown(_vision_objs), 'vision_obj')
             .appendField(Blockly.Msg.SENGO2_GET_QRCODEVALUE)
         this.setInputsInline(true)
